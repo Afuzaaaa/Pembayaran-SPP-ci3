@@ -1,0 +1,44 @@
+<section class="page-section bg-primary" id="about">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-lg-8 text-center">
+          <h2 class="text-white mt-0">Data Guru</h2>
+          <hr class="divider divider-light" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<main role="main" class="col-md-12 ml-sm-auto">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2"><?= $title; ?></h1>
+  </div>
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <?php if(validation_errors()) : ?>
+        <div class="alert alert-danger" role="alert"><?= validation_errors(); ?></div>
+      <?php endif; ?>
+      <?= $this->session->flashdata('pesan'); ?>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md">
+          <?= form_open('admin/guru/ubahDataGuru'); ?>
+          <input type="text" name="id_guru" id="id_guru" value="<?= $guru['id_guru']; ?>" disabled>
+          <div class="form-group">
+            <label for="nama">Nama Guru</label>
+            <input type="text" name="nama" id="nama" value="<?= $guru['nama_guru']; ?>" class="form-control">
+            <small class="muted text-danger"><?= form_error('nama'); ?></small>
+          </div>
+          <div class="form-group">
+            <a href="<?= base_url('admin/guru'); ?>" class="btn btn-secondary">Kembali</a>
+            <button type="submit" class="btn btn-primary">Ubah</button>
+          </div>
+          <?= form_close(); ?>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
